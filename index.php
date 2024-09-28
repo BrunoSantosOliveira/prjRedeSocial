@@ -1,5 +1,5 @@
 <?php
-include 'c:\xampp\htdocs\repositorio\bd\bd.php';
+include 'c:\xampp\htdocs\git\bd\bd.php';
 $partenome = explode(" ", $_SESSION['usuario']);
 $primeironome = $partenome[0];
 
