@@ -1,5 +1,5 @@
 <?php
-include 'c:\xampp\htdocs\git\bd\bd.php';
+include 'C:\xampp\htdocs\git\prjRedeSocial\bd\bd.php';
 $partenome = explode(" ", $_SESSION['usuario']);
 $primeironome = $partenome[0];
 
@@ -16,16 +16,16 @@ $primeironome = $partenome[0];
 <body>
     <header>
         <div class="logo">
-            <img src="" alt="Logo">
+            <h2>Cozinha Descomplica</h2>
         </div>
         <nav class="navbar">
-            <a class="navbaritem" href="home/home.php#slider_section">Início</a>
-            <a class="navbaritem" href="home/home.php#service_section">Serviços</a>
-            <a class="navbaritem" href="home/home.php#about_section">Sobre Nós</a>
+            <a class="navbaritem" href="#">Início</a>
+            <a class="navbaritem" href="#">Categorias</a>
+            <a class="navbaritem" href="#">Sobre Nós</a>
             <?php if (isset($_SESSION['usuario'])): ?>
                 <a class="navbaritem" href="#"><?php echo htmlspecialchars($primeironome); ?></a>
             <?php else: ?>
-                <a class="navbaritem" href="#">Entrar</a>
+                <a class="navbaritem" href="login/login.php">Entrar</a>
             <?php endif; ?>
             <a class="navbaritem" href="#">Ingredientes</a>
         </nav>
