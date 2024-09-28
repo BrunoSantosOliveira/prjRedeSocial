@@ -1,3 +1,10 @@
+<?php
+include 'c:\xampp\htdocs\repositorio\bd\bd.php';
+$partenome = explode(" ", $_SESSION['usuario']);
+$primeironome = $partenome[0];
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,12 +16,18 @@
 <body>
     <header>
         <div class="logo">
-            <h2>Finexo.</h2>
+            <img src="" alt="Logo">
         </div>
         <nav class="navbar">
             <a class="navbaritem" href="home/home.php#slider_section">Início</a>
             <a class="navbaritem" href="home/home.php#service_section">Serviços</a>
             <a class="navbaritem" href="home/home.php#about_section">Sobre Nós</a>
+            <?php if (isset($_SESSION['usuario'])): ?>
+                <a class="navbaritem" href="#"><?php echo htmlspecialchars($primeironome); ?></a>
+            <?php else: ?>
+                <a class="navbaritem" href="#">Entrar</a>
+            <?php endif; ?>
+            <a class="navbaritem" href="#">Ingredientes</a>
         </nav>
     </header>
 </body>
