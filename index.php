@@ -1,9 +1,9 @@
 <?php
 include 'C:\xampp\htdocs\git\prjRedeSocial\bd\bd.php';
-$partenome = explode(" ", $_SESSION['usuario']);
-$primeironome = $partenome[0];
-
-
+if (isset($_SESSION['usuario'])) {
+    $partenome = explode(" ", $_SESSION['usuario']);
+    $primeironome = $partenome[0];
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
