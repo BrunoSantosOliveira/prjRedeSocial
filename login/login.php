@@ -1,5 +1,5 @@
 <?php
-    include 'C:\xampp\htdocs\git\prjRedeSocial\bd\bd.php';
+    include '../bd/bd.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
