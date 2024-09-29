@@ -12,7 +12,9 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f1e8e8;
+    background: url('fundoLogin.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
     user-select: none;
 }
 header{
@@ -25,6 +27,7 @@ header{
     align-items: center;
     padding: 20px 100px;
     z-index: 999;
+    background-color: #FFF4F0;
 }
 .logo{
     font-size: 1.2em;
@@ -40,7 +43,7 @@ header{
     margin-left: 40px;
 }
 .navbar a:hover{
-    color: #FFA487;
+    color: #4c6b7f;
 }
 .navbar a::after{
     content: '';
@@ -56,7 +59,7 @@ header{
 }
 .navbar a:hover::after{
     transform: scaleX(1);
-    background: #FFA487;
+    background: #4c6b7f;
 }
 .wrap{
     position: relative;
@@ -80,20 +83,20 @@ header{
     position: relative;
 }
 .message-text{
-    color: #4c6b7f;
+    color: #f1e8e8;
     font-weight: 600;
     font-size: 1em;
 }
 .form-box h2{
     font-size: 2.2em;
-    color: #4c6b7f;
+    color: #f1e8e8;
     text-align: center;
 }
 .input-box{
     position: relative;
     width: 100%;
     height: 40px;
-    border-bottom: 2px solid #4c6b7f;
+    border-bottom: 2px solid #f1e8e8;
     margin: 30px 0;
 }
 .input-box label{
@@ -103,7 +106,7 @@ header{
     left: 5px;
     font-size: 1em;
     font-weight: 400;
-    color: #4c6b7f;
+    color: #f1e8e8;
     pointer-events: none;
     transition: .5s;
 }
@@ -113,7 +116,7 @@ header{
     background: transparent;
     border: none;
     outline: none;
-    color: #4c6b7f;
+    color: #f1e8e8;
     font-weight: 600;
     padding: 0 35px 0 5px;
 }
@@ -131,7 +134,7 @@ header{
     top: 50%;
     transform: translateY(-50%);
     right: 5px;
-    color: #4c6b7f;
+    color: #f1e8e8;
     font-size: 1.2em;
 }
 .forgot{
@@ -140,7 +143,7 @@ header{
 .forgot a{
     text-decoration: none;
     font-weight: 500;
-    color: #4c6b7f;
+    color: #f1e8e8;
     font-size: .9em;
     transition: all .2s;
 }
@@ -154,8 +157,7 @@ header{
     text-align: center;
     padding: 5px 10px 5px 10px;
     border-radius: 5px;
-    background: #4c6b7f;
-    color: #f1e8e8;
+    background: #f1e8e8;
     cursor: pointer;
     transition: all .2s;
     font-weight: 600;
@@ -166,14 +168,14 @@ header{
     box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
 }
 .cadastro{
-    color: #4c6b7f;
+    color: #f1e8e8;
     font-size: .9em;
     width: 100%;
     text-align: center;
     margin-top: 5px;
 }
 .cadastro a{
-    color: #4c6b7f;
+    color: #f1e8e8;
     font-weight: 600;
     text-decoration: underline;
     transform-origin: left;
