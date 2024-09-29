@@ -1,5 +1,5 @@
 <?php
-include 'C:\xampp\htdocs\git\prjRedeSocial\bd\bd.php';
+include 'bd\bd.php';
 if (isset($_SESSION['usuario'])) {
     $partenome = explode(" ", $_SESSION['usuario']);
     $primeironome = $partenome[0];
@@ -11,7 +11,7 @@ if (isset($_SESSION['usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cozinha Descomplica</title>
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
