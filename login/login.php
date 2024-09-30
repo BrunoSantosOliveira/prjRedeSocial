@@ -65,10 +65,10 @@ $conn->close();
                 </div>
                 <div class="input-box">
                     <span class="icon">
-                        <ion-icon name="person"></ion-icon>
+                        <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="email" name="name" placeholder="" required>
-                    <label>Login</label>
+                    <input type="email" name="email" placeholder="" required>
+                    <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
@@ -78,11 +78,11 @@ $conn->close();
                     <label>Senha</label>
                 </div>
                 <div class="forgot">
-                    <a href="/prjRedeSocial/forgot/forgot.php">Esqueceu a senha?</a>
+                    <a href="/git/prjRedeSocial/forgot/forgot.php">Esqueceu a senha?</a>
                 </div>
                 <button type="submit" class="btn">Entrar</button>
                 <div class="cadastro">
-                    <span>Não tem conta? <a href="/prjRedeSocial/register/register.php" class="cadastro-link">Cadastre-se</a>
+                    <span>Não tem conta? <a href="/git/prjRedeSocial/register/register.php" class="cadastro-link">Cadastre-se</a>
                         aqui</span>
                 </div>
             </form>

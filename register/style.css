@@ -65,7 +65,7 @@ header{
 .wrap{
     position: relative;
     width: 400px;
-    height: 440px;
+    height: 540px;
     background: transparent;
     border-radius: 20px;
     backdrop-filter: blur(30px);
@@ -138,19 +138,6 @@ header{
     color: #f1e8e8;
     font-size: 1.2em;
 }
-.forgot{
-    margin: -15px 0 15px;
-}
-.forgot a{
-    text-decoration: none;
-    font-weight: 500;
-    color: #f1e8e8;
-    font-size: .9em;
-    transition: all .2s;
-}
-.forgot a:hover{
-    color: #FFA487;
-}
 
 .btn{
     width: 100%;
@@ -169,20 +156,20 @@ header{
     box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
     background-color: #FFA487;
 }
-.cadastro{
+.login{
     color: #f1e8e8;
     font-size: .9em;
     width: 100%;
     text-align: center;
     margin-top: 5px;
 }
-.cadastro a{
+.login a{
     color: #f1e8e8;
     font-weight: 600;
     text-decoration: underline;
     transform-origin: left;
     transition: all .2s;
 }
-.cadastro a:hover{
+.login a:hover{
     color: #FFA487;
 }
