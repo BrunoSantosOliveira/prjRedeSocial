@@ -6,6 +6,6 @@ CREATE TABLE tb_users(
     username VARCHAR(60) NOT NULL UNIQUE,
     nomeCompleto VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    senha VARCHAR(300) NOT NULL,
-    fotoPerfil BLOB
+    senha VARCHAR(255) NOT NULL,
+    fotoPerfil VARCHAR(255)
 );

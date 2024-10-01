@@ -1,7 +1,7 @@
 <?php
-include 'C:\xampp\htdocs\git\prjRedeSocial\bd\bd.php';
+include '..\bd\bd.php';
 
-$erroMensagem = "";
+$mensagem = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
@@ -14,21 +14,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
-        $erroMensagem = "Email já cadastrado!";
+        $mensagem = "Email já cadastrado!";
     } else {
         $sql = "SELECT * FROM tb_users WHERE username = '$username'";
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0) {
-            $erroMensagem = "Username não disponível!";
+            $mensagem = "Username não disponível!";
         } else {
             $sql = "INSERT INTO tb_users(username, nomeCompleto, email, senha) VALUES('$username', '$nomeCompleto', '$email', '$senhaCript')";
             
             if ($conn->query($sql) === TRUE) {
-                header("Location: /git/prjRedeSocial/login/login.php?message=".urlencode("Cadastrado com sucesso!"));
-                exit();
+                header("Location: ../login/login.php");
+                $mensagem = "Cadastrado com sucesso";
             } else {
-                $erroMensagem = "Erro ao cadastrar.";
+                $mensagem = "Erro ao cadastrar";
             }
         }
     }
@@ -59,8 +59,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form action="register.php" method="post" autocomplete="off">
                 <div class="message">
                     <?php
-                    if (!empty($erroMensagem)) {
-                        echo '<span class="message-text">' . htmlspecialchars($erroMensagem) . '</span>';
+                    if (!empty($mensagem)) {
+                        echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>';
                     }
                     ?>
                 </div>
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <button type="submit" class="btn">Cadastrar</button>
                 <div class="login">
-                    <span>Já possui uma conta? <a href="/git/prjRedeSocial/login/login.php" class="login-link">Faça Login</a>
+                    <span>Já possui uma conta? <a href="../login/login.php" class="login-link">Faça Login</a>
                         aqui</span>
                 </div>
         </form>

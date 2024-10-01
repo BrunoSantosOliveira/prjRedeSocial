@@ -1,6 +1,6 @@
 <?php
-    include 'C:\xampp\htdocs\git\prjRedeSocial\bd\bd.php';
-    $erroMensagem = "";
+    include '..\bd\bd.php';
+    $mensagem = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
@@ -16,17 +16,17 @@
                 $_SESSION['nomeCompleto'] = $row['nomeCompleto'];
                 $_SESSION['id'] = $row['id'];
                 if($row['id'] == 1) {
-                    header("Location: /git/prjRedeSocial/admin/admin.php");
+                    header("Location: ../admin/admin.php");
                     exit();
                 } else{
-                    header("Location: /git/prjRedeSocial/index.php");
+                    header("Location: ../index.php");
                     exit();
                 }
         } else {
-            $erroMensagem = "Senha Inválida!";
+            $mensagem = "Senha Inválida!";
         }
     } else {
-        $erroMensagem = "Email não encontrado!";
+        $mensagem = "Email não encontrado!";
     }
 }
 $conn->close();
@@ -57,8 +57,8 @@ $conn->close();
             <form action="login.php" method="post" autocomplete="off">
                 <div class="message">
                     <?php
-                    if (!empty($erroMensagem)) {
-                        echo '<span class="message-text">' . htmlspecialchars($erroMensagem) . '</span>';
+                    if (!empty($mensagem)) {
+                        echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>';
                     }
                     ?>
                 </div>
@@ -81,7 +81,7 @@ $conn->close();
                 </div>
                 <button type="submit" class="btn">Entrar</button>
                 <div class="cadastro">
-                    <span>Não tem conta? <a href="/git/prjRedeSocial/register/register.php" class="cadastro-link">Cadastre-se</a>
+                    <span>Não tem conta? <a href="../register/register.php" class="cadastro-link">Cadastre-se</a>
                         aqui</span>
                 </div>
             </form>
