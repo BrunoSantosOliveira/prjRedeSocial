@@ -1,5 +1,5 @@
 <?php
-include 'C:\xampp\htdocs\git\prjRedeSocial\bd\bd.php';
+include '..\bd\bd.php';
 
 $erroMensagem = "";
 
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $sql = "INSERT INTO tb_users(username, nomeCompleto, email, senha) VALUES('$username', '$nomeCompleto', '$email', '$senhaCript')";
             
             if ($conn->query($sql) === TRUE) {
-                header("Location: /git/prjRedeSocial/login/login.php?message=".urlencode("Cadastrado com sucesso!"));
+                header("Location: ../login/login.php");
                 exit();
             } else {
                 $erroMensagem = "Erro ao cadastrar.";

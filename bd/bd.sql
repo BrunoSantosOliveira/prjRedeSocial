@@ -7,5 +7,5 @@ CREATE TABLE tb_users(
     nomeCompleto VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     senha VARCHAR(300) NOT NULL,
-    fotoPerfil BLOB
+    fotoPerfil VARCHAR(255)
 );

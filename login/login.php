@@ -1,5 +1,5 @@
 <?php
-    include 'C:\xampp\htdocs\git\prjRedeSocial\bd\bd.php';
+    include '..\bd\bd.php';
     $erroMensagem = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -81,7 +81,7 @@ $conn->close();
                 </div>
                 <button type="submit" class="btn">Entrar</button>
                 <div class="cadastro">
-                    <span>Não tem conta? <a href="/git/prjRedeSocial/register/register.php" class="cadastro-link">Cadastre-se</a>
+                    <span>Não tem conta? <a href="../register/register.php" class="cadastro-link">Cadastre-se</a>
                         aqui</span>
                 </div>
             </form>
