@@ -1,5 +1,6 @@
 <?php
-    include '../bd/bd.php';
+    include 'C:\xampp\htdocs\git\prjRedeSocial\bd\bd.php';
+    $erroMensagem = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
@@ -15,19 +16,17 @@
                 $_SESSION['nomeCompleto'] = $row['nomeCompleto'];
                 $_SESSION['id'] = $row['id'];
                 if($row['id'] == 1) {
-                    header("Location: /prjRedeSocial/admin/admin.php");
+                    header("Location: /git/prjRedeSocial/admin/admin.php");
                     exit();
                 } else{
-                    header("Location: /prjRedeSocial/index.php");
+                    header("Location: /git/prjRedeSocial/index.php");
                     exit();
                 }
         } else {
-            header("Location: login.php?message=" . urlencode("Senha inválida!"));
-            exit();
+            $erroMensagem = "Senha Inválida!";
         }
     } else {
-        header("Location: login.php?message=" . urlencode("Email não encontrado!"));
-        exit();
+        $erroMensagem = "Email não encontrado!";
     }
 }
 $conn->close();
@@ -58,16 +57,16 @@ $conn->close();
             <form action="login.php" method="post" autocomplete="off">
                 <div class="message">
                     <?php
-                        if (isset($_GET['message'])) {
-                            echo '<span class="message-text">' . htmlspecialchars($_GET['message']) . '</span>';
-                        }
+                    if (!empty($erroMensagem)) {
+                        echo '<span class="message-text">' . htmlspecialchars($erroMensagem) . '</span>';
+                    }
                     ?>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="email" name="email" placeholder="" required>
+                    <input type="email" name="email" placeholder="" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">

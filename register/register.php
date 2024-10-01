@@ -1,37 +1,37 @@
 <?php
 include 'C:\xampp\htdocs\git\prjRedeSocial\bd\bd.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST")   {
+$erroMensagem = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $nomeCompleto = $_POST['nomeCompleto'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $senhaCript = password_hash($senha, PASSWORD_DEFAULT);
 
-
-    $sql = "SELECT * FROM tb_users WHERE  email = '$email'";
+    $sql = "SELECT * FROM tb_users WHERE email = '$email'";
     $result = $conn->query($sql);
+    
     if ($result->num_rows > 0) {
-        header("Location: register.php?message=".urlencode("Email já cadastrado!"));
-        exit();
+        $erroMensagem = "Email já cadastrado!";
     } else {
-            $sql = "SELECT * FROM tb_users WHERE username = '$username'";
-            $result = $conn->query($sql);
-            if($result->num_rows > 0) {
-                header("Location: register.php?message=".urlencode("Username não disponível!"));
+        $sql = "SELECT * FROM tb_users WHERE username = '$username'";
+        $result = $conn->query($sql);
+        
+        if ($result->num_rows > 0) {
+            $erroMensagem = "Username não disponível!";
+        } else {
+            $sql = "INSERT INTO tb_users(username, nomeCompleto, email, senha) VALUES('$username', '$nomeCompleto', '$email', '$senhaCript')";
+            
+            if ($conn->query($sql) === TRUE) {
+                header("Location: /git/prjRedeSocial/login/login.php?message=".urlencode("Cadastrado com sucesso!"));
                 exit();
             } else {
-                $sql = "INSERT INTO tb_users(username, nomeCompleto, email, senha) VALUES('$username',
-                 '$nomeCompleto', '$email', '$senhaCript')";
-                 if($conn->query($sql) === TRUE) {
-                    header("Location:  /git/prjRedeSocial/login/login.php?message=".urlencode("Cadastrado com sucesso!"));
-                    exit();
-                 } else {
-                    header("Location:  register.php?message=".urlencode("Erro ao cadastrar"));
-                    exit();
-                 }
+                $erroMensagem = "Erro ao cadastrar.";
             }
         }
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -59,30 +59,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")   {
             <form action="register.php" method="post" autocomplete="off">
                 <div class="message">
                     <?php
-                        if (isset($_GET['message'])) {
-                            echo '<span class="message-text">' . htmlspecialchars($_GET['message']) . '</span>';
-                        }
+                    if (!empty($erroMensagem)) {
+                        echo '<span class="message-text">' . htmlspecialchars($erroMensagem) . '</span>';
+                    }
                     ?>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="person"></ion-icon>
                     </span>
-                    <input type="text" name="username" placeholder="" required>
+                    <input type="text" name="username" placeholder="" value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>" required>
                     <label>Username</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="person"></ion-icon>
                     </span>
-                    <input type="text" name="nomeCompleto" placeholder="" required>
+                    <input type="text" name="nomeCompleto" placeholder="" value="<?php echo isset($_POST['nomeCompleto']) ? htmlspecialchars($_POST['nomeCompleto']) : ''; ?>" required>
                     <label>Nome Completo</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="email" name="email" placeholder="" required>
+                    <input type="email" name="email" placeholder="" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")   {
                     <span>Já possui uma conta? <a href="/git/prjRedeSocial/login/login.php" class="login-link">Faça Login</a>
                         aqui</span>
                 </div>
-            </form>
+        </form>
         </div>
     </div>
 </body>
