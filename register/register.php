@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
-        $mensagem = "Email já cadastrado!";
+        $mensagem = "Email já existe!";
     } else {
         $sql = "SELECT * FROM tb_users WHERE username = '$username'";
         $result = $conn->query($sql);
