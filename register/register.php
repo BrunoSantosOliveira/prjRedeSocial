@@ -1,5 +1,6 @@
 <?php
 include '..\bd\bd.php';
+session_destroy();
 
 $mensagem = "";
 
@@ -27,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($conn->query($sql) === TRUE) {
                 header("Location: ../login/login.php");
                 $mensagem = "Cadastrado com sucesso";
+                $_SESSION['mensagem'] = $mensagem;
             } else {
                 $mensagem = "Erro ao cadastrar";
             }
