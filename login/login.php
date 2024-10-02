@@ -1,5 +1,6 @@
 <?php
     include '..\bd\bd.php';
+    session_destroy();
     $mensagem = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -41,12 +42,12 @@ $conn->close();
     <title>Login</title>
 </head>
 <body>
-<header>
+    <header>
         <div class="logo">
             <h2>Cozinha Descomplica</h2>
         </div>
         <nav class="navbar">
-            <a class="navbaritem" href="#">Início</a>
+            <a class="navbaritem" href="../index.php">Início</a>
             <a class="navbaritem" href="#">Categorias</a>
             <a class="navbaritem" href="#">Sobre Nós</a>
         </nav>
@@ -57,9 +58,13 @@ $conn->close();
             <form action="login.php" method="post" autocomplete="off">
                 <div class="message">
                     <?php
-                    if (!empty($mensagem)) {
-                        echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>';
+                    if (isset($_SESSION['mensagem'])) {
+                        $mensagem = $_SESSION['mensagem'];
+                        if (!empty($mensagem)) {
+                            echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>';
+                        }
                     }
+                    unset($_SESSION['mensagem']);
                     ?>
                 </div>
                 <div class="input-box">
