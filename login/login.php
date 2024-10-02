@@ -28,7 +28,7 @@
             $mensagem = "Senha Inválida!";
         }
     } else {
-        $mensagem = "Email não encontrado!";
+        $mensagem = "Email ou Usuário não encontrado!";
     }
 }
 $conn->close();
