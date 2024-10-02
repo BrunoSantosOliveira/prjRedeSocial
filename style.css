@@ -62,3 +62,32 @@ header{
     transform: scaleX(1);
     background: #4c6b7f;
 }
+.container{
+    width: 90%;
+    height: 100%;
+    margin-top: 300px;
+    border: #323232 1px solid;
+}
+.title h1{
+    font-size: 3em;
+    color: #4c6b7f;
+}
+.title h5{
+    font-size: 1.2em;
+    color: #4c6b7f;
+}
+.category-select{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.category{
+    width: 350px;
+    height: 260px;
+    box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
+}
+.category img {
+    max-width: 340px;
+    max-height: 230px;
+}

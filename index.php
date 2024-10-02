@@ -40,5 +40,28 @@ if (isset($_SESSION['nomeCompleto'])) {
             <a class="navbaritem" href="#">Ingredientes</a>
         </nav>
     </header>
+    <div class="container">
+        <div class="title">
+            <h1>Bem-Vindo ao <br>
+            Cozinha Descomplica</h1>
+            <h5><?php if (isset($_SESSION['nomeCompleto'])){echo htmlspecialchars($primeironome);} ?>Veja as receitas que preparamos para você</h5>
+        </div>
+        <div class="category-select">
+            <a href="">
+                <div class="category">
+                    <img src="img/imgIndexCategory/cafeCategory.jpg" alt="Café">
+                    <h5>Café</h5>
+                </div>
+            </a>
+            <a href="">
+                <div class="category">
+                    <div class="img">
+                        <img src="img/imgIndexCategory/refeicaoCategory.jpg" alt="Café">
+                    </div>
+                    <h5>Refeições</h5>
+                </div>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
