@@ -44,7 +44,7 @@ if (isset($_SESSION['nomeCompleto'])) {
         <div class="title">
             <h1>Bem-Vindo ao <br>
             Cozinha Descomplica</h1>
-            <h5><?php if (isset($_SESSION['nomeCompleto'])){echo htmlspecialchars($primeironome);} ?>Veja as receitas que preparamos para você</h5>
+            <h5><?php if (isset($_SESSION['nomeCompleto'])){echo htmlspecialchars($primeironome) . ", ";} ?>Veja as receitas que preparamos para você</h5>
         </div>
         <div class="category-select">
             <a href="">
