@@ -61,9 +61,9 @@ $conn->close();
                     <?php
                     if (isset($_SESSION['mensagem'])) {
                         $mensagem = $_SESSION['mensagem'];
-                        if (!empty($mensagem)) {
-                            echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>';
-                        }
+                    }
+                    if (!empty($mensagem)) {
+                        echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>';
                     }
                     unset($_SESSION['mensagem']);
                     ?>
