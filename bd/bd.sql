@@ -9,3 +9,11 @@ CREATE TABLE tb_users(
     senha VARCHAR(255) NOT NULL,
     fotoPerfil VARCHAR(255)
 );
+
+create table tb_receitas(
+    id_Receita INT AUTO_INCREMENT PRIMARY KEY,
+    nome_Receita VARCHAR(80) NOT NULL,
+    descricao VARCHAR(200) NOT NULL,
+    ingredientes VARCHAR(200) NOT NULL,
+    fotoReceita VARCHAR(255)
+);
