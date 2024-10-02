@@ -1,6 +1,7 @@
 <?php
 include '..\bd\bd.php';
 session_destroy();
+
 $mensagem = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
