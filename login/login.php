@@ -4,10 +4,10 @@
     $mensagem = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $entrada = $_POST['entrada'];
+        $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        $sql = "SELECT * FROM tb_users WHERE email = '$entrada' OR username = '$entrada'";
+        $sql = "SELECT * FROM tb_users WHERE email = '$email'";
 
         $result = $conn->query($sql);
 
@@ -68,8 +68,11 @@ $conn->close();
                     ?>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="entrada" placeholder="" value="<?php echo isset($_POST['entrada']) ? htmlspecialchars($_POST['entrada']) : ''; ?>" required>
-                    <label>Email ou Usuário</label>
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" name="email" placeholder="" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required>
+                    <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
