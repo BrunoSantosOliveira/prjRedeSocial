@@ -80,7 +80,7 @@ $conn->close();
                     <label>Senha</label>
                 </div>
                 <div class="forgot">
-                    <a href="/git/prjRedeSocial/forgot/forgot.php">Esqueceu a senha?</a>
+                    <a href="../forgot/forgot.php">Esqueceu a senha?</a>
                 </div>
                 <button type="submit" class="btn">Entrar</button>
                 <div class="cadastro">
