@@ -63,4 +63,6 @@ VALUES
 (2, 'Sal', 'a gosto'),
 (2, 'Pimenta-do-reino', 'a gosto');
 
---drop database cozinhaDescomplica;
+
+-- select * from tb_users;
+-- drop database cozinhaDescomplica;

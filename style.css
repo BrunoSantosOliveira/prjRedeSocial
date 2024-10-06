@@ -70,16 +70,19 @@ header {
     background: #4c6b7f;
 }
 
-.container {
-    width: 90%;
+.content {
+    width: 90vw;
     height: 100%;
-    margin-top: 300px;
-    border: #323232 1px solid;
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }
 
 .title h1 {
     font-size: 3em;
     color: #4c6b7f;
+    margin-top: 5%;
 }
 
 .title h5 {
@@ -90,15 +93,14 @@ header {
 .categorys {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .category {
-    width: 20vw;
-    height: 20vw;
-    margin: 2.5vw;
+    width: 18vw;
+    height: 18vw;
     background-color: rgba(255, 255, 255, 1);
     border-radius: 5%;
-    box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
     display: flex;
     flex-direction: column;
     padding: 1%;
@@ -106,9 +108,57 @@ header {
 }
 
 .category img {
-    width: 50%;
-    height: 50%;
+    width: 110%;
+    height: 70%;
     object-fit: cover;
     object-position: center center;
-    border-radius: 50%;
+    border-radius: 0.5vw;
+    transition: all 0.4s;
+    box-shadow: 0 5px 15px rgb(0, 0, 0, 0.4);
+}
+
+.category img:hover {
+    box-shadow: 0 7.5px 20px rgb(0, 0, 0, 0.9);
+}
+
+.categorys a {
+    text-decoration: none;
+    color: #4c6b7f;
+}
+
+.maisPopulares {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.popular {
+    display: flex;
+    flex-direction: column;
+}
+
+#stars {
+    display: flex;
+    width: 9vw;
+    height: 1.8vw;
+    margin-bottom: 0.8vw;
+}
+
+#imgReceita {
+    display: flex;
+    width: 21vw;
+    height: 21vw;
+    box-shadow: 0 5px 15px rgb(0, 0, 0, 0.4);
+    border-radius: 0.5vw;
+    transition: all 0.4s;
+}
+
+#imgReceita:hover {
+    box-shadow: 0 7.5px 20px rgb(0, 0, 0, 0.9);
+}
+
+.popular h3{
+    color: #4c6b7f;
 }

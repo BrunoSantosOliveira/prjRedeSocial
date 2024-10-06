@@ -42,19 +42,65 @@ if (isset($_SESSION['nomeCompleto'])) {
     </header>
     
     <div class="content">
-        
+        <div class="title">
+            <h1>Bem-Vindo ao <br>
+            Cozinha Descomplica</h1>
+            <h5><?php if (isset($_SESSION['nomeCompleto'])){echo htmlspecialchars($primeironome) . ", ";} ?>Veja as receitas que preparamos para você</h5>
+        </div>
 
         <div class="categorys">
-            <div class="category">
+            <a href=""> <div class="category">
                 <img src="img/imgIndexCategory/cafeCategory.jpg" alt="Café">
             
-                <h1>Café</h1>
-            </div>
+                <h2>Café</h2>
+            </div> </a>
 
-            <div class="category">
+            <a href=""> <div class="category">
                 <img src="img/imgIndexCategory/refeicaoCategory.jpg" alt="Refeições">
             
-                <h1>Refeições</h1>
+                <h2>Refeições</h2>
+            </div> </a>
+
+            <a href=""> <div class="category">
+                <img src="img/imgIndexCategory/lancheCategory.png" alt="Lanches">
+            
+                <h2>Lanches</h2>
+            </div> </a>
+
+            <a href=""> <div class="category">
+                <img src="img/imgIndexCategory/sobremesaCategory.png" alt="Sobremesas">
+            
+                <h2>Sobremesas</h2>
+            </div> </a>
+        </div>
+
+        <div class="title">
+            <h1>Mais populares</h1>
+        </div>
+
+        <div class="maisPopulares">
+            <div class="popular">
+                <h2>Bolo de Milho cremoso</h2>
+
+                <img src="img/imgMaisPopulares/fiveStars.png" id="stars" alt="Estrelas">
+
+                <a href="receita/receita.php"> <img src="img/imgMaisPopulares/boloDeMihoCremoso.png" id="imgReceita" alt="Imagem Receita"> </a>
+            </div>
+
+            <div class="popular">
+                <h2>Salada de Penne</h2>
+
+                <img src="img/imgMaisPopulares/fiveStars.png" id="stars" alt="Estrelas">
+
+                <a href="receita/receita.php"> <img src="img/imgMaisPopulares/saladaDePenne.png" id="imgReceita" alt="Imagem Receita"> </a>
+            </div>
+
+            <div class="popular">
+                <h2>Torta de Frango</h2>
+
+                <img src="img/imgMaisPopulares/fiveStars.png" id="stars" alt="Estrelas">
+
+                <a href="receita/receita.php"> <img src="img/imgMaisPopulares/tortaDeFrango.png" id="imgReceita" alt="Imagem Receita"> </a>
             </div>
         </div>
     </div>
