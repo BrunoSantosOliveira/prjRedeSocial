@@ -96,10 +96,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="senha" placeholder="" minlength="3" required>
                     <label>Senha</label>
                 </div>
-                <div class="input-box">
-                    <input type="file" name="profilePicture">
-                    <label>Foto de Perfil</label>
-                </div>
                 <button type="submit" class="btn">Cadastrar</button>
                 <div class="login">
                     <span>Já possui uma conta? <a href="../login/login.php" class="login-link">Faça Login</a> aqui</span>

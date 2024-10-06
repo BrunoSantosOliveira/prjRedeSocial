@@ -51,14 +51,15 @@ if (isset($_SESSION['nomeCompleto'])) {
             <a href="">
                 <div class="category">
                     <img src="img/imgIndexCategory/cafeCategory.jpg" alt="Café">
+
                     <h5>Café</h5>
                 </div>
             </a>
+            
             <a href="">
                 <div class="category">
-                    <div class="img">
-                        <img src="img/imgIndexCategory/refeicaoCategory.jpg" alt="Café">
-                    </div>
+                    <img src="img/imgIndexCategory/refeicaoCategory.jpg" alt="Café">
+
                     <h5>Refeições</h5>
                 </div>
             </a>

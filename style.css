@@ -89,18 +89,26 @@ header {
 
 .category-select {
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-top: 20px;
+    flex-direction: row;
 }
 
 .category {
-    width: 350px;
-    height: 260px;
+    width: 20vw;
+    height: 20vw;
+    margin: 2.5vw;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 5%;
     box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    margin-top: 40px;
 }
 
 .category img {
-    max-width: 340px;
-    max-height: 230px;
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
 }

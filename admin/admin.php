@@ -65,7 +65,7 @@
 <body>
     <header>
         <div class="logo">
-            <h2>Cozinha Descomplica</h2>
+            <a href="../index.php" id="aLogo"> <h2>Cozinha Descomplica</h2> </a>
         </div>
         <nav class="navbar">
             <a class="navbaritem" href="#">Usuários</a>
@@ -81,68 +81,84 @@
                 <img src="<?php echo $recentProfilePictureUser1; ?>" alt="Usuário Recente">
             
                 <h1>
-                    <?php 
+                    <?php
+                    if($resultNewUsers->num_rows > 0){ 
                         if($recentUsernameUser1 == null){
                             echo "Nenhum Usuário!";
                         } else {
                             echo "@",$recentUsernameUser1;
                         }
+                    } else {
+                        echo "Nenhum Usuário!";
+                    }
                     ?>
                 </h1>
 
                 <h3>Biografia:</h3>
-                <p><?php echo $recentBiographyUser1 ?></p>
+                <p><?php if($resultNewUsers->num_rows > 0) {echo $recentBiographyUser1;}?></p>
             </div>
 
             <div class="user">
                 <img src="<?php echo $recentProfilePictureUser2; ?>" alt="Usuário Recente">
             
                 <h1>
-                    <?php 
+                    <?php
+                    if($resultNewUsers->num_rows > 0){ 
                         if($recentUsernameUser2 == null){
                             echo "Nenhum Usuário!";
                         } else {
                             echo "@",$recentUsernameUser2;
                         }
+                    } else {
+                        echo "Nenhum Usuário!";
+                    }
                     ?>
                 </h1>
 
                 <h3>Biografia:</h3>
-                <p><?php echo $recentBiographyUser2 ?></p>
+                <p><?php if($resultNewUsers->num_rows > 0) {echo $recentBiographyUser2;}?></p>
             </div>
 
             <div class="user">
                 <img src="<?php echo $recentProfilePictureUser3; ?>" alt="Usuário Recente">
             
                 <h1>
-                    <?php 
+                    <?php
+                    if($resultNewUsers->num_rows > 0){ 
                         if($recentUsernameUser3 == null){
                             echo "Nenhum Usuário!";
                         } else {
                             echo "@",$recentUsernameUser3;
                         }
+                    } else {
+                        echo "Nenhum Usuário!";
+                    }
                     ?>
                 </h1>
 
                 <h3>Biografia:</h3>
-                <p><?php echo $recentBiographyUser3 ?></p>
+                <p><?php if($resultNewUsers->num_rows > 0) {echo $recentBiographyUser3;}?></p>
             </div>
 
             <div class="user">
                 <img src="<?php echo $recentProfilePictureUser4; ?>" alt="Usuário Recente">
             
                 <h1>
-                    <?php 
+                    <?php
+                    if($resultNewUsers->num_rows > 0){ 
                         if($recentUsernameUser4 == null){
                             echo "Nenhum Usuário!";
                         } else {
                             echo "@",$recentUsernameUser4;
                         }
+                    } else {
+                        echo "Nenhum Usuário!";
+                    }
                     ?>
                 </h1>
 
                 <h3>Biografia:</h3>
-                <p><?php echo $recentBiographyUser4 ?></p>
+                <p><?php if($resultNewUsers->num_rows > 0) {echo $recentBiographyUser4;}?></p>
             </div>
         </div>
 
