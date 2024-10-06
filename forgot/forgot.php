@@ -35,9 +35,9 @@
 
             $mail->send();
 
-            $mensagem = "Email enviado com sucesso! Confira a caixa de span";
+            $mensagem = '<span class="message-text">Email enviado com sucesso!<br>Confira a caixa de span</span>';
         }  else {
-            $mensagem = "Email não encontrado";
+            $mensagem = '<span class="message-text">Email não encontrado!</span>';
         }
 
     }
@@ -72,7 +72,7 @@
                         $mensagem = $_SESSION['mensagem'];
                     }
                     if (!empty($mensagem)) {
-                        echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>';
+                        echo $mensagem;
                     }
                     unset($_SESSION['mensagem']);
                     ?>
