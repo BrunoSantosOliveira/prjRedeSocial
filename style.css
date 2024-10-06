@@ -13,10 +13,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../img/fundoLogin.jpg') no-repeat;
     background-position: center;
     background-size: cover;
     user-select: none;
+    background-color: rgb(232, 227, 227);
 }
 
 header {
@@ -99,7 +99,6 @@ header {
 .category {
     width: 18vw;
     height: 18vw;
-    background-color: rgba(255, 255, 255, 1);
     border-radius: 5%;
     display: flex;
     flex-direction: column;
