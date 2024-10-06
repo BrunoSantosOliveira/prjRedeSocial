@@ -80,6 +80,7 @@ header {
     display: flex;
     flex-direction: column;
     padding: 1%;
+    margin-top: 40px;
 }
 
 .user img {
@@ -88,5 +89,31 @@ header {
     object-fit: cover;
     object-position: center center;
     border-radius: 50%;
-    border: yellow solid 2px;
+    box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
+}
+
+.newReceitas {
+    display: flex;
+    flex-direction: row;
+}
+
+.receita {
+    width: 20vw;
+    height: 20vw;
+    margin: 2.5vw;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5%;
+    box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+}
+
+.receita img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
 }
