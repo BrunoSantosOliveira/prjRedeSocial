@@ -1,3 +1,36 @@
+<?php
+    include '../bd/bd.php';
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    require 'phpmailer/src/Exception.php';
+    require 'phpmailer/src/PHPMailer.php';
+    require 'phpmailer/src/SMTP.php';
+
+
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $email = $_POST['email'];
+        $sql = "SELECT * FROM tb_users WHERE  email = '$email'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            $mail = new PHPMailer(true);
+
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'igorcs1104@gmail.com';
+            $mail->Password = 'mzxsztjkyojjlcrw';
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port = 465;
+
+            $mail->setFrom('igorcs1104@gmail.com');
+            $mail->addAddress($email);
+        }  else {
+            $mensagem = "Email não encontrado";
+        }
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,15 +67,9 @@
                     ?>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="entrada" placeholder="" value="<?php echo isset($_POST['entrada']) ? htmlspecialchars($_POST['entrada']) : ''; ?>" required>
-                    <label>Email ou Usuário</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="lock-closed"></ion-icon>
-                    </span>
-                    <input type="password" name="senha" minlength="3" placeholder="" required>
-                    <label>Nova Senha</label>
+                    <input type="text" name="entrada" placeholder="" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['entrada']) : ''; ?>" required>
+                    <label>Email</label>
+                    <code>Insira seu email para receber um link de recuperação</code>
                 </div>
                 <button type="submit" class="btn">Recuperar</button>
             </form>
