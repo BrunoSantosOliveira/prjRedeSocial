@@ -87,7 +87,7 @@ header {
     color: #4c6b7f;
 }
 
-.category-select {
+.categorys {
     display: flex;
     flex-direction: row;
 }

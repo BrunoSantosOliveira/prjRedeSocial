@@ -41,28 +41,21 @@ if (isset($_SESSION['nomeCompleto'])) {
         </nav>
     </header>
     
-    <div class="container">
-        <div class="title">
-            <h1>Bem-Vindo ao <br>
-            Cozinha Descomplica</h1>
-            <h5><?php if (isset($_SESSION['nomeCompleto'])){echo htmlspecialchars($primeironome) . ", ";} ?>Veja as receitas que preparamos para você</h5>
-        </div>
-        <div class="category-select">
-            <a href="">
-                <div class="category">
-                    <img src="img/imgIndexCategory/cafeCategory.jpg" alt="Café">
+    <div class="content">
+        
 
-                    <h5>Café</h5>
-                </div>
-            </a>
+        <div class="categorys">
+            <div class="category">
+                <img src="img/imgIndexCategory/cafeCategory.jpg" alt="Café">
             
-            <a href="">
-                <div class="category">
-                    <img src="img/imgIndexCategory/refeicaoCategory.jpg" alt="Café">
+                <h1>Café</h1>
+            </div>
 
-                    <h5>Refeições</h5>
-                </div>
-            </a>
+            <div class="category">
+                <img src="img/imgIndexCategory/refeicaoCategory.jpg" alt="Refeições">
+            
+                <h1>Refeições</h1>
+            </div>
         </div>
     </div>
 </body>
