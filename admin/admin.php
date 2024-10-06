@@ -5,6 +5,7 @@
     include "../bd/bd.php";
 
     $resultNewUsers = $conn->query("SELECT * FROM tb_users ORDER BY dataCriacao DESC LIMIT 4");
+    $resultNewReceitas = $conn->query("SELECT * FROM tb_receitas ORDER BY dataCriacao DESC LIMIT 4");
 
     if($resultNewUsers->num_rows > 0) {
         $recentProfilePictures = [];
@@ -32,6 +33,26 @@
         $recentBiographyUser3 = $recentBiographys[2] ?? null;
         $recentBiographyUser4 = $recentBiographys[3] ?? null;
     };
+
+    if($resultNewReceitas->num_rows > 0) {
+        $recentFotoReceitas = [];
+        $recentNomeReceitas = [];
+
+        while($row = $resultNewReceitas->fetch_assoc()) {
+            $recentFotoReceitas[] = $row['fotoReceita'];
+            $recentNomeReceitas[] = $row['nome_Receita'];
+        }
+
+        $recentFotoReceita1 = $recentFotoReceitas[0] ?? null;
+        $recentFotoReceita2 = $recentFotoReceitas[1] ?? null;
+        $recentFotoReceita3 = $recentFotoReceitas[2] ?? null;
+        $recentFotoReceita4 = $recentFotoReceitas[3] ?? null;
+
+        $recentNomeReceita1 = $recentNomeReceitas[0] ?? null;
+        $recentNomeReceita2 = $recentNomeReceitas[1] ?? null;
+        $recentNomeReceita3 = $recentNomeReceitas[2] ?? null;
+        $recentNomeReceita4 = $recentNomeReceitas[3] ?? null;
+    }
 ?>
 
 <head>
@@ -64,7 +85,7 @@
                         if($recentUsernameUser1 == null){
                             echo "Nenhum Usuário!";
                         } else {
-                            echo $recentUsernameUser1;
+                            echo "@",$recentUsernameUser1;
                         }
                     ?>
                 </h1>
@@ -81,7 +102,7 @@
                         if($recentUsernameUser2 == null){
                             echo "Nenhum Usuário!";
                         } else {
-                            echo $recentUsernameUser2;
+                            echo "@",$recentUsernameUser2;
                         }
                     ?>
                 </h1>
@@ -98,7 +119,7 @@
                         if($recentUsernameUser3 == null){
                             echo "Nenhum Usuário!";
                         } else {
-                            echo $recentUsernameUser3;
+                            echo "@",$recentUsernameUser3;
                         }
                     ?>
                 </h1>
@@ -115,7 +136,7 @@
                         if($recentUsernameUser4 == null){
                             echo "Nenhum Usuário!";
                         } else {
-                            echo $recentUsernameUser4;
+                            echo "@",$recentUsernameUser4;
                         }
                     ?>
                 </h1>
@@ -126,6 +147,78 @@
         </div>
 
         <div class="newReceitas">
+            <div class="receita">
+                <img src="<?php echo $recentFotoReceita1;?>" alt="Receita Recente">
+
+                <h1>
+                    <?php
+                        if($resultNewReceitas->num_rows > 0){
+                            if($recentNomeReceita1 == null){
+                                echo "Nenhuma Receita!";
+                            } else {
+                                echo $recentNomeReceita1;
+                            }
+                        } else {
+                            echo "Nenhuma Receita!";
+                        }
+                    ?>
+                </h1>
+            </div>
+
+            <div class="receita">
+                <img src="<?php echo $recentFotoReceita2;?>" alt="Receita Recente">
+
+                <h1>
+                    <?php 
+                        if($resultNewReceitas->num_rows > 0){
+                            if($recentNomeReceita2 == null){
+                                echo "Nenhuma Receita!";
+                            } else {
+                                echo $recentNomeReceita2;
+                            }
+                        } else {
+                            echo "Nenhuma Receita!";
+                        }
+                    ?>
+                </h1>
+            </div>
+
+            <div class="receita">
+                <img src="<?php echo $recentFotoReceita3;?>" alt="Receita Recente">
+
+                <h1>
+                    <?php 
+                        if($resultNewReceitas->num_rows > 0){
+                            if($recentNomeReceita3 == null){
+                                echo "Nenhuma Receita!";
+                            } else {
+                                echo $recentNomeReceita3;
+                            }
+                        } else {
+                            echo "Nenhuma Receita!";
+                        }
+                    ?>
+                </h1>
+            </div>
+
+            <div class="receita">
+                <img src="<?php echo $recentFotoReceita4;?>" alt="Receita Recente">
+
+                <h1>
+                    <?php 
+                        if($resultNewReceitas->num_rows > 0){
+                            if($recentNomeReceita4 == null){
+                                echo "Nenhuma Receita!";
+                            } else {
+                                echo $recentNomeReceita4;
+                            }
+                        } else {
+                            echo "Nenhuma Receita!";
+                        }
+                    ?>
+                </h1>
+            </div>
+
         </div>
     </div>    
 </body>
