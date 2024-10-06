@@ -13,18 +13,29 @@
         $sql = "SELECT * FROM tb_users WHERE  email = '$email'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
             $mail = new PHPMailer(true);
 
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'igorcs1104@gmail.com';
-            $mail->Password = 'mzxsztjkyojjlcrw';
+            $mail->Password = 'mzxs ztjk yojj lcrw';
             $mail->SMTPSecure = 'ssl';
             $mail->Port = 465;
 
             $mail->setFrom('igorcs1104@gmail.com');
+
             $mail->addAddress($email);
+
+            $mail->isHTML(true);
+
+            $mail->Subject = "Alterar senha";
+            $mail->Body = "Link de alteração de senha: http://localhost/prjRedeSocial/passwordchange/passwordchange.php?id=".$row['id']." se não foi você que solicitou ignore este email.";
+
+            $mail->send();
+
+            $mensagem = "Email enviado com sucesso! Confira a caixa de span";
         }  else {
             $mensagem = "Email não encontrado";
         }
@@ -53,7 +64,7 @@
     </header>
     <div class="wrap">
         <div class="form-box forgot">
-            <h2>Recuperar Senha</h2>
+            <h2>Recuperar Senha</h2><br><br>
             <form action="forgot.php" method="post" autocomplete="off">
                 <div class="message">
                     <?php
@@ -67,11 +78,13 @@
                     ?>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="entrada" placeholder="" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['entrada']) : ''; ?>" required>
+                    <input type="text" name="email" placeholder="" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required>
                     <label>Email</label>
-                    <code>Insira seu email para receber um link de recuperação</code>
-                </div>
+                </div><br><br>
                 <button type="submit" class="btn">Recuperar</button>
+                <div class="login">
+                    <span>Retornar ao <a href="../login/login.php" class="login-link">Login</a> aqui</span>
+                </div>
             </form>
         </div>
     </div>

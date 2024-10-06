@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label>Senha</label>
                 </div>
                 <div class="input-box">
-                    <input type="file" name="profilePicture" required>
+                    <input type="file" name="profilePicture">
                     <label>Foto de Perfil</label>
                 </div>
                 <button type="submit" class="btn">Cadastrar</button>
