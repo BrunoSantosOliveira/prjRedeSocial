@@ -33,7 +33,7 @@ if (isset($_SESSION['nomeCompleto'])) {
             <a class="navbaritem" href="#">Categorias</a>
             <a class="navbaritem" href="#">Sobre Nós</a>
             <?php if (isset($_SESSION['nomeCompleto'])): ?>
-                <a class="navbaritem" href="user/user.php"><?php echo htmlspecialchars($primeironome); ?></a>
+                <a class="navbaritem" href="<?php if($_SESSION['id'] = 1 ){ echo "admin/admin.php";}else{ echo "user/user.php";}?>"><?php echo htmlspecialchars($primeironome); ?></a>
             <?php else: ?>
                 <a class="navbaritem" href="login/login.php">Entrar</a>
             <?php endif; ?>
