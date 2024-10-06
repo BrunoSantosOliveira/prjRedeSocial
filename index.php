@@ -40,6 +40,7 @@ if (isset($_SESSION['nomeCompleto'])) {
             <a class="navbaritem" href="#">Ingredientes</a>
         </nav>
     </header>
+    
     <div class="container">
         <div class="title">
             <h1>Bem-Vindo ao <br>

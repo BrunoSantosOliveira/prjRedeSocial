@@ -7,7 +7,9 @@ CREATE TABLE tb_users(
     nomeCompleto VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
-    fotoPerfil VARCHAR(255)
+    fotoPerfil VARCHAR(255),
+    biography VARCHAR(100),
+    dataCriacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 create table tb_receitas(

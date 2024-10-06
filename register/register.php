@@ -11,27 +11,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['senha'];
     $senhaCript = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql = "SELECT * FROM tb_users WHERE email = '$email'";
+    $sql = "SELECT * FROM tb_users WHERE email = '$email' OR username = '$username'";
     $result = $conn->query($sql);
-    
+
     if ($result->num_rows > 0) {
-        $mensagem = "Email já existe!";
+        $mensagem = $result->fetch_assoc()['email'] === $email ? "Email já existe!" : "Username não disponível!";
     } else {
-        $sql = "SELECT * FROM tb_users WHERE username = '$username'";
-        $result = $conn->query($sql);
-        
-        if ($result->num_rows > 0) {
-            $mensagem = "Username não disponível!";
-        } else {
-            $sql = "INSERT INTO tb_users(username, nomeCompleto, email, senha) VALUES('$username', '$nomeCompleto', '$email', '$senhaCript')";
+        $sql = "INSERT INTO tb_users(username, nomeCompleto, email, senha) VALUES('$username', '$nomeCompleto', '$email', '$senhaCript')";
+        if ($conn->query($sql) === TRUE) {
+            $userId = $conn->insert_id;
             
-            if ($conn->query($sql) === TRUE) {
-                header("Location: ../login/login.php");
-                $mensagem = "Cadastrado com sucesso";
-                $_SESSION['mensagem'] = $mensagem;
-            } else {
-                $mensagem = "Erro ao cadastrar";
+            if (isset($_FILES['profilePicture']) && $_FILES['profilePicture']['error'] === UPLOAD_ERR_OK) {
+                $arquivoTmp = $_FILES['profilePicture']['tmp_name'];
+                $nomeArquivoUnico = uniqid() . '_' . basename($_FILES['profilePicture']['name']);
+                $caminhoCompleto = '../img/profilesPictures/' . $nomeArquivoUnico;
+
+                if (!is_dir('../img/profilesPictures')) {
+                    mkdir('../img/profilesPictures', 0777, true);
+                }
+
+                if (move_uploaded_file($arquivoTmp, $caminhoCompleto)) {
+                    $sql = "UPDATE tb_users SET fotoPerfil = ? WHERE id = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param('si', $caminhoCompleto, $userId);
+                    $stmt->execute();
+                } else {
+                    echo "Erro ao mover o arquivo!";
+                }
             }
+
+            $_SESSION['mensagem'] = "Cadastrado com sucesso";
+            header("Location: ../login/login.php");
+            exit;
+        } else {
+            $mensagem = "Erro ao cadastrar";
         }
     }
 }
@@ -46,9 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header>
-        <div class="logo">
-            <h2>Cozinha Descomplica</h2>
-        </div>
+        <div class="logo"><h2>Cozinha Descomplica</h2></div>
         <nav class="navbar">
             <a class="navbaritem" href="#">Início</a>
             <a class="navbaritem" href="#">Categorias</a>
@@ -58,48 +69,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="wrap">
         <div class="form-box login">
             <h2>Cadastrar</h2>
-            <form action="register.php" method="post" autocomplete="off">
+            <form action="register.php" method="post" autocomplete="off" enctype="multipart/form-data">
                 <div class="message">
-                    <?php
-                    if (!empty($mensagem)) {
-                        echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>';
-                    }
-                    ?>
+                    <?php if (!empty($mensagem)) echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>'; ?>
                 </div>
                 <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="person"></ion-icon>
-                    </span>
-                    <input type="text" name="username" placeholder="" value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>" required>
+                    <input type="text" name="username" value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>" required>
                     <label>Username</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="person"></ion-icon>
-                    </span>
-                    <input type="text" name="nomeCompleto" placeholder="" value="<?php echo isset($_POST['nomeCompleto']) ? htmlspecialchars($_POST['nomeCompleto']) : ''; ?>" required>
+                    <input type="text" name="nomeCompleto" value="<?php echo isset($_POST['nomeCompleto']) ? htmlspecialchars($_POST['nomeCompleto']) : ''; ?>" required>
                     <label>Nome Completo</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="mail"></ion-icon>
-                    </span>
-                    <input type="email" name="email" placeholder="" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required>
+                    <input type="email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon">
-                        <ion-icon name="lock-closed"></ion-icon>
-                    </span>
-                    <input type="password" name="senha" minlength="3" placeholder="" required>
+                    <input type="password" name="senha" minlength="3" required>
                     <label>Senha</label>
+                </div>
+                <div class="input-box">
+                    <input type="file" name="profilePicture" required>
+                    <label>Foto de Perfil</label>
                 </div>
                 <button type="submit" class="btn">Cadastrar</button>
                 <div class="login">
-                    <span>Já possui uma conta? <a href="../login/login.php" class="login-link">Faça Login</a>
-                        aqui</span>
+                    <span>Já possui uma conta? <a href="../login/login.php" class="login-link">Faça Login</a> aqui</span>
                 </div>
-        </form>
+            </form>
         </div>
     </div>
 </body>
