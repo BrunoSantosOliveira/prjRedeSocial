@@ -10,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $senhaCript = password_hash($senha, PASSWORD_DEFAULT);
+    $caminhoPadrao = '../img/profilesPictures/userPadrao.png';
 
     $sql = "SELECT * FROM tb_users WHERE email = '$email' OR username = '$username'";
     $result = $conn->query($sql);
@@ -38,6 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } else {
                     echo "Erro ao mover o arquivo!";
                 }
+            } else {
+                $caminhoFinal = $caminhoPadrao;
+                $sql = "UPDATE tb_users SET fotoPerfil = ? WHERE id = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param('si', $caminhoFinal, $userId);
+                $stmt->execute();
             }
 
             $_SESSION['mensagem'] = "Cadastrado com sucesso";
@@ -74,19 +81,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php if (!empty($mensagem)) echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>'; ?>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="username" value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>" required>
+                    <input type="text" name="username" placeholder="" value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : ''; ?>" required>
                     <label>Username</label>
                 </div>
                 <div class="input-box">
-                    <input type="text" name="nomeCompleto" value="<?php echo isset($_POST['nomeCompleto']) ? htmlspecialchars($_POST['nomeCompleto']) : ''; ?>" required>
+                    <input type="text" name="nomeCompleto" placeholder="" value="<?php echo isset($_POST['nomeCompleto']) ? htmlspecialchars($_POST['nomeCompleto']) : ''; ?>" required>
                     <label>Nome Completo</label>
                 </div>
                 <div class="input-box">
-                    <input type="email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required>
+                    <input type="email" name="email" placeholder="" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
-                    <input type="password" name="senha" minlength="3" required>
+                    <input type="password" name="senha" placeholder="" minlength="3" required>
                     <label>Senha</label>
                 </div>
                 <div class="input-box">

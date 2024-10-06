@@ -14,7 +14,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background: url(../img/backgroundsSite/fundoLogin.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
     user-select: none;
     overflow-x: hidden;
 }
@@ -74,7 +76,7 @@ header {
     width: 20vw;
     height: 20vw;
     margin: 2.5vw;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 1);
     border-radius: 5%;
     box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
     display: flex;
@@ -89,7 +91,6 @@ header {
     object-fit: cover;
     object-position: center center;
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
 }
 
 .newReceitas {
@@ -101,7 +102,7 @@ header {
     width: 20vw;
     height: 20vw;
     margin: 2.5vw;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 1);
     border-radius: 5%;
     box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
     display: flex;
@@ -115,5 +116,4 @@ header {
     object-fit: cover;
     object-position: center center;
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
 }
