@@ -14,10 +14,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('../img/backgroundsSite/fundoLogin.jpg') no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-color: #fff;
     user-select: none;
+    overflow-x: hidden;
 }
 
 header {
@@ -68,6 +67,7 @@ header {
 .newUsers {
     display: flex;
     flex-direction: row;
+    margin-top: 200px;
 }
 
 .user {
