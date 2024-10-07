@@ -13,6 +13,35 @@ $email = $row['email'];
 $biography = $row['biography'];
 $profile = $row['fotoPerfil'];
 
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+    $username = $_POST['username'];
+    $nomeCompleto = $_POST['nomeCompleto'];
+    $email = $_POST['email'];
+    $biography = $_POST['biography'];
+
+    $sql = "SELECT * FROM tb_users WHERE  email = '$email' and  id != '$id'";
+
+    $result = $conn->query($sql);
+    if($result->num_rows > 0){
+        $mensagem = "Email já cadastrado";
+    } else{
+        $sql = "SELECT * FROM tb_users WHERE username = '$username' and  id != '$id'";
+        $result = $conn->query($sql);
+        if($result->num_rows > 0) {
+            $mensagem = "Username já cadastrado";
+        } else{
+            $sql = "UPDATE tb_users SET username = '$username', nomeCompleto = '$nomeCompleto'
+            , email = '$email', biography = '$biography' WHERE id = '$id'";
+            if($conn->query($sql) === TRUE){
+                header("Location:  ../user/user.php");
+            } else{
+                $mensagem = "Erro ao atualizar dados";
+            }
+        }
+    }
+
+
+}
 $conn->close();
 ?>
 
@@ -22,7 +51,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Perfil - Editar</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -42,13 +71,10 @@ $conn->close();
     <div class="wrap">
         <div class="form-box login">
             <div class="btn-voltar">
-                <a href="../index.php"><ion-icon name="arrow-back-circle-outline"></ion-icon></a>
+                <a href="../user/user.php"><ion-icon name="arrow-back-circle-outline"></ion-icon></a>
             </div>
-            <h2>Perfil</h2>
-            <div class="foto">
-                <img src="<?php echo $profile; ?>" alt="Foto de Perfil">
-            </div>
-            <form action="user.php" method="post" autocomplete="off">
+            <h2>Editar</h2>
+            <form action="update.php" method="post" autocomplete="off">
                 <div class="message">
                     <?php if (!empty($mensagem)) echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>'; ?>
                 </div>
@@ -57,42 +83,32 @@ $conn->close();
                     <span class="icon">
                         <ion-icon name="person"></ion-icon>
                     </span>
-                    <input type="text" name="username" placeholder="" class="align inp" readonly value="<?php echo $username;?>">
+                    <input type="text" name="username" placeholder="" class="align inp" value="<?php echo $username;?>">
                     <label>Username</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="finger-print"></ion-icon>
                     </span>
-                    <input type="text" name="nomeCompleto" placeholder="" class="align inp" readonly value="<?php echo $nomeCompleto;?>">
+                    <input type="text" name="nomeCompleto" placeholder="" class="align inp" value="<?php echo $nomeCompleto;?>">
                     <label>Nome Completo</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="email" name="email" placeholder="" readonly value="<?php echo  $email;?>">
+                    <input type="email" name="email" placeholder="" value="<?php echo  $email;?>">
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="book"></ion-icon>
                     </span>
-                    <input type="text" name="biography" placeholder="" class="align inp" readonly value="<?php echo $biography;?>">
+                    <input type="text" name="biography" placeholder="" class="align inp" value="<?php echo $biography;?>">
                     <label>Biografia</label>
                 </div> 
-            </form><br>
-            <div class="voltar">
-                <a href="../update/update.php"><button class="btn">Editar Perfil</button></a>
-            </div>
-
-            <div class="voltar">
-                    <a href="../passwordChange/passwordChange.php"><button class="btn">Alterar Senha</button></a>
-            </div>
-            <div class="voltar">
-                <span>Clique <a href="../index.php" class="cadastro-link"> Aqui </a>
-                    para sair da conta</span>
-            </div>
+                <button type="submit" class="btn">Confirmar Edições</button>
+            </form>
         </div>
     </div>
 </body>

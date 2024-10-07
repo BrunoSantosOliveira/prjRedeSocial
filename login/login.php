@@ -71,6 +71,9 @@ $conn->close();
                     ?>
                 </div>
                 <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
                     <input type="text" name="entrada" placeholder="" value="<?php echo isset($_POST['entrada']) ? htmlspecialchars($_POST['entrada']) : ''; ?>" required>
                     <label>Email ou Usuário</label>
                 </div>
