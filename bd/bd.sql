@@ -26,11 +26,10 @@ CREATE TABLE tb_ingredientes (
 );
 
 CREATE TABLE tb_receita_ingrediente (
-	cd_quantidade_ingredientes INT,
+	cd_quantidade_ingredientes INT PRIMARY KEY,
     cd_receita INT,
-    PRIMARY KEY (id_quantidade_ingredientes, id_receita),
     quantidade VARCHAR(40) NOT NULL,
-    FOREIGN KEY (cd_receita) REFERENCES tb_receitas(id_Receita) ON DELETE CASCADE
+    FOREIGN KEY (cd_receita) REFERENCES tb_receitas(id_Receita) ON DELETE CASCADE,
     FOREIGN KEY (cd_quantidade_ingredientes) REFERENCES tb_ingredientes(id_ingrediente) ON DELETE CASCADE
 );
 

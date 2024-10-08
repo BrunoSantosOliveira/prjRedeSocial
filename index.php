@@ -14,6 +14,22 @@ if (isset($_SESSION['nomeCompleto'])) {
     $partenome = explode(" ", $_SESSION['nomeCompleto']);
     $primeironome = $partenome[0];
 }
+
+
+$resultReceitas = $conn->query("SELECT * FROM tb_receitas ORDER BY dataCriacao DESC LIMIT 3");
+
+if($resultReceitas->num_rows > 0){
+    $popularIdReceitas = [];
+
+    while($row = $resultReceitas->fetch_assoc()) {
+        $popularIdReceitas[] = $row['id_Receita'] ;
+
+        $popularIdReceita1 = $popularIdReceitas[0] ?? null;
+        $popularIdReceita2 = $popularIdReceitas[1] ?? null;
+        $popularIdReceita3 = $popularIdReceitas[2] ?? null;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -50,25 +66,25 @@ if (isset($_SESSION['nomeCompleto'])) {
         </div>
 
         <div class="categorys">
-            <a href=""> <div class="category">
+            <a href="category/category.php"> <div class="category">
                 <img src="img/imgIndexCategory/cafeCategory.jpg" alt="Café">
-            
+
                 <h2>Café</h2>
             </div> </a>
 
-            <a href=""> <div class="category">
+            <a href="category/category.php"> <div class="category">
                 <img src="img/imgIndexCategory/refeicaoCategory.jpg" alt="Refeições">
             
                 <h2>Refeições</h2>
             </div> </a>
 
-            <a href=""> <div class="category">
+            <a href="category/category.php"> <div class="category">
                 <img src="img/imgIndexCategory/lancheCategory.png" alt="Lanches">
             
                 <h2>Lanches</h2>
             </div> </a>
 
-            <a href=""> <div class="category">
+            <a href="category/category.php"> <div class="category">
                 <img src="img/imgIndexCategory/sobremesaCategory.png" alt="Sobremesas">
             
                 <h2>Sobremesas</h2>
@@ -85,7 +101,9 @@ if (isset($_SESSION['nomeCompleto'])) {
 
                 <img src="img/imgMaisPopulares/fiveStars.png" id="stars" alt="Estrelas">
 
-                <a href="receita/receita.php"> <img src="img/imgMaisPopulares/boloDeMihoCremoso.png" id="imgReceita" alt="Imagem Receita"> </a>
+                <a href="#" onclick="submitId(<?php echo $popularIdReceita1; ?>)">
+                    <img src="img/imgMaisPopulares/boloDeMihoCremoso.png" id="imgReceita" alt="Imagem Receita">
+                <a>
             </div>
 
             <div class="popular">
@@ -93,7 +111,9 @@ if (isset($_SESSION['nomeCompleto'])) {
 
                 <img src="img/imgMaisPopulares/fiveStars.png" id="stars" alt="Estrelas">
 
-                <a href="receita/receita.php"> <img src="img/imgMaisPopulares/saladaDePenne.png" id="imgReceita" alt="Imagem Receita"> </a>
+                <a href="receita/receita.php" onclick="submitId(<?php echo $popularIdReceita2; ?>)">
+                     <img src="img/imgMaisPopulares/saladaDePenne.png" id="imgReceita" alt="Imagem Receita">
+                    </a>
             </div>
 
             <div class="popular">
@@ -101,8 +121,21 @@ if (isset($_SESSION['nomeCompleto'])) {
 
                 <img src="img/imgMaisPopulares/fiveStars.png" id="stars" alt="Estrelas">
 
-                <a href="receita/receita.php"> <img src="img/imgMaisPopulares/tortaDeFrango.png" id="imgReceita" alt="Imagem Receita"> </a>
+                <a href="receita/receita.php" onclick="submitId(<?php echo $popularIdReceita3; ?>)">
+                     <img src="img/imgMaisPopulares/tortaDeFrango.png" id="imgReceita" alt="Imagem Receita">
+                    </a>
             </div>
+
+            <form id="categoryForm" action="receita/receita.php" method="POST" style="display:none;">
+                <input type="hidden" name="id" id="categoryId">
+            </form>
+
+            <script>
+                function submitId(id) {
+                    document.getElementById('categoryId').value = id;
+                    document.getElementById('categoryForm').submit();
+                }
+            </script>
         </div>
     </div>
 </body>
