@@ -112,12 +112,12 @@ header {
     object-fit: cover;
     object-position: center center;
     border-radius: 0.5vw;
-    transition: all 0.4s;
+    transition: all 0.4s ease;
     box-shadow: 0 5px 15px rgb(0, 0, 0, 0.4);
 }
 
 .category img:hover {
-    box-shadow: 0 7.5px 20px rgb(0, 0, 0, 0.9);
+    transform: translateY(-8px);
 }
 
 .categorys a {
@@ -155,7 +155,7 @@ header {
 }
 
 #imgReceita:hover {
-    box-shadow: 0 7.5px 20px rgb(0, 0, 0, 0.9);
+    transform: translateY(-8px);
 }
 
 .popular h3{

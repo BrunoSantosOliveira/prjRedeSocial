@@ -90,7 +90,7 @@ $conn->close();
                     <a href="../passwordChange/passwordChange.php"><button class="btn">Alterar Senha</button></a>
             </div>
             <div class="voltar">
-                <span>Clique <a href="../index.php" class="cadastro-link"> Aqui </a>
+                <span>Clique <a href="../login/login.php" class="cadastro-link"> Aqui </a>
                     para sair da conta</span>
             </div>
         </div>

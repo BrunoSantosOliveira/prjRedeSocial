@@ -39,7 +39,6 @@ if (isset($_SESSION['nomeCompleto'])) {
             <?php else: ?>
                 <a class="navbaritem" href="login/login.php">Entrar</a>
             <?php endif; ?>
-            <a class="navbaritem" href="#">Ingredientes</a>
         </nav>
     </header>
     

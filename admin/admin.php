@@ -37,10 +37,12 @@
     if($resultNewReceitas->num_rows > 0) {
         $recentFotoReceitas = [];
         $recentNomeReceitas = [];
+        $recentDescricaoReceitas = [];
 
         while($row = $resultNewReceitas->fetch_assoc()) {
             $recentFotoReceitas[] = $row['fotoReceita'];
             $recentNomeReceitas[] = $row['nome_Receita'];
+            $recentDescricaoReceitas[] = $row['descricao'];
         }
 
         $recentFotoReceita1 = $recentFotoReceitas[0] ?? null;
@@ -52,6 +54,11 @@
         $recentNomeReceita2 = $recentNomeReceitas[1] ?? null;
         $recentNomeReceita3 = $recentNomeReceitas[2] ?? null;
         $recentNomeReceita4 = $recentNomeReceitas[3] ?? null;
+
+        $recentDescricaoReceita1 = $recentDescricaoReceitas[0] ?? null;
+        $recentDescricaoReceita2 = $recentDescricaoReceitas[1] ?? null;
+        $recentDescricaoReceita3 = $recentDescricaoReceitas[2] ?? null;
+        $recentDescricaoReceita4 = $recentDescricaoReceitas[3] ?? null;
     }
 ?>
 
@@ -181,6 +188,8 @@
                         }
                     ?>
                 </h1>
+                <h3>Biografia:</h3>
+                <p><?php if($resultNewReceitas->num_rows > 0) {echo $recentDescricaoReceita1;}?></p>
             </div>
 
             <div class="receita">
@@ -199,6 +208,8 @@
                         }
                     ?>
                 </h1>
+                <h3>Biografia:</h3>
+                <p><?php if($resultNewReceitas->num_rows > 0) {echo $recentDescricaoReceita2;}?></p>
             </div>
 
             <div class="receita">
@@ -217,6 +228,8 @@
                         }
                     ?>
                 </h1>
+                <h3>Biografia:</h3>
+                <p><?php if($resultNewReceitas->num_rows > 0) {echo $recentDescricaoReceita3;}?></p>
             </div>
 
             <div class="receita">
@@ -235,6 +248,8 @@
                         }
                     ?>
                 </h1>
+                <h3>Biografia:</h3>
+                <p><?php if($resultNewReceitas->num_rows > 0) {echo $recentDescricaoReceita4;}?></p>
             </div>
 
         </div>

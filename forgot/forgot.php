@@ -28,7 +28,7 @@
 
             $mail->addAddress($email);
 
-            $mail->isHTML(true);
+            $mail->isHTML(false);
 
             $mail->Subject = "Alterar senha";
             $mail->Body = "Link de alteração de senha: http://localhost/prjRedeSocial/passwordchange/passwordchange.php?id=".$row['id']." se não foi você que solicitou ignore este email.";
