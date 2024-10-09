@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Adicionar Receita</h1>
-    <form id="form-receita" method="POST" action="insertReceita.php">
+    <form id="form-receita" method="POST" action="insertReceita.php" enctype="multipart/form-data">
         <label for="nomeReceita">Nome da Receita:</label>
         <input type="text" id="nomeReceita" name="nomeReceita" required>
 
@@ -20,8 +20,8 @@
         <h3>Ingredientes</h3>
         <div id="ingredientes-container">
             <div class="ingrediente-item">
-                <input type="text" class="ingrediente-nome" name="ingrediente[]" placeholder="Digite ou busque um ingrediente" onkeyup="buscarIngrediente(this)">
-                <input type="text" class="ingrediente-quantidade" name="quantidade[]" placeholder="Quantidade">
+                <input type="text" class="ingrediente-nome" name="ingrediente[]" required placeholder="Digite ou busque um ingrediente" onkeyup="buscarIngrediente(this)">
+                <input type="text" class="ingrediente-quantidade" name="quantidade[]" required placeholder="Quantidade">
                 <button type="button" onclick="adicionarIngrediente()">Adicionar outro ingrediente</button>
                 <button type="button" onclick="excluirIngrediente()">Excluir ingrediente</button>
             </div>
@@ -46,8 +46,8 @@
             let div = document.createElement('div');
             div.classList.add('ingrediente-item');
             div.innerHTML = `
-                <input type="text" class="ingrediente-nome" placeholder="Digite ou busque um ingrediente" onkeyup="buscarIngrediente(this)">
-                <input type="text" class="ingrediente-quantidade" placeholder="Quantidade">
+                <input type="text" class="ingrediente-nome" name="ingrediente[]" required placeholder="Digite ou busque um ingrediente" onkeyup="buscarIngrediente(this)">
+                <input type="text" class="ingrediente-quantidade" name="quantidade[]" required placeholder="Quantidade">
             `;
             container.appendChild(div);
         }

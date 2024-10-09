@@ -26,19 +26,15 @@ CREATE TABLE tb_ingredientes (
 );
 
 CREATE TABLE tb_receita_ingrediente (
-	id_quantidade_ingredientes INT PRIMARY KEY,
+	id_quantidade_ingredientes INT PRIMARY KEY AUTO_INCREMENT,
     id_receita INT,
     id_ingrediente INT,
-    quantidade VARCHAR(40) NOT NULL,
+    quantidade VARCHAR(100) NOT NULL,
     FOREIGN KEY (id_receita) REFERENCES tb_receitas(id_Receita) ON DELETE CASCADE,
     FOREIGN KEY (id_ingrediente) REFERENCES tb_ingredientes(id_ingrediente) ON DELETE CASCADE
 );
 
-INSERT INTO tb_receitas (nome_Receita, descricao, fotoReceita) VALUES
-('Torta de Frango', 'Torta de frango cremosa e fácil de fazer', '../img/receitas/torta.webp');
-
-INSERT INTO tb_receitas (nome_Receita, descricao, fotoReceita) VALUES
-('Hamburger', 'Hamburger saboroso com cheddar', '../img/receitas/lanche.jpg');
-
--- select * from tb_users;
+-- select * from tb_ingredientes;
+-- select * from tb_receitas;
+-- select * from tb_receita_ingrediente;
 -- drop database cozinhaDescomplica;
