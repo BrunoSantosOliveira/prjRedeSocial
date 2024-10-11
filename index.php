@@ -66,7 +66,7 @@ if($resultReceitas->num_rows > 0){
         </div>
 
         <div class="categorys">
-            <a href="category/category.php"> <div class="category">
+            <a href="cafe/cafe.php"> <div class="category">
                 <img src="img/imgIndexCategory/cafeCategory.jpg" alt="Café">
 
                 <h2>Café</h2>
