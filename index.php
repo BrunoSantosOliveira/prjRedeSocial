@@ -51,7 +51,7 @@ if (isset($_SESSION['nomeCompleto'])) {
         </div>
 
         <div class="categorys">
-            <a href=""> <div class="category">
+            <a href="cafe/cafe.php"> <div class="category">
                 <img src="img/imgIndexCategory/cafeCategory.jpg" alt="Café">
             
                 <h2>Café</h2>
