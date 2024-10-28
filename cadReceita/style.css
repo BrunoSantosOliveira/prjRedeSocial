@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+*{
+    font-family: "Poppins", "sans-serif";
+    border: 0;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../img/backgroundsSite/fundoLogin.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+    user-select: none;
+    background-attachment: fixed;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    z-index: 999;
+    background-color: #f1e8e8;
+    box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
+}
+
+.logo{
+    font-size: 1.2em;
+    color: #323232;
+    user-select: none;
+}
+.navbar a{
+    position: relative;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: #323232;
+    font-weight: 500;
+    margin-left: 40px;
+}
+.navbar a:hover{
+    color: #4c6b7f;
+}
+.navbar a::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: -6px;
+    border-radius: 5px;
+    background: #323232;
+    transform: scaleX(0);
+    transition: all 0.3s;
+}
+.navbar a:hover::after{
+    transform: scaleX(1);
+    background: #4c6b7f;
+}
+.wrap {
+    width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background: transparent;
+    border-radius: 20px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-box {
+    padding: 20px;
+    width: 100%;
+    color: #f1e8e8;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box input[type="text"], .input-box textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-box label {
+    display: block;
+}
+
+.ingrediente-item {
+    margin-bottom: 20px;
+}
+
+.ingrediente-item button[type="button"] {
+    margin-right: 10px;
+}
+
+.ingrediente-item button[type="button"]:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+#btn{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    background: #f1e8e8;
+    cursor: pointer;
+    transition: all .2s;
+    font-weight: 600;
+    font-size: .75em;
+}
+#btn:hover{
+    box-shadow: 0 1px 5px rgb(0, 0, 0, .5);
+    background-color: #FFA487;
+    color: white;
+}
