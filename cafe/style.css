@@ -91,8 +91,8 @@ header {
 }
   
 .img {
-    width: 1300px;
-    height: 500px;
+    width: 80vw;
+    height: 20vw;
     border-radius: 15px;
     display: block;
     margin-left: auto;
@@ -100,9 +100,9 @@ header {
     margin-top: 3%;
 }
 
-.tit h3 {
-    font-size: 2em;
-    color: #4c6b7f;
+.tit {
     margin-top: 3%;
-    border: 1px #4c6b7f;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-top: 5px #4c6b7f solid;
 }

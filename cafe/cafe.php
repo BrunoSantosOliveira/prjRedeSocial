@@ -50,11 +50,11 @@ if (isset($_SESSION['nomeCompleto'])) {
         </div>
 
         <div class="container">
-        <img src="../img/imgCafe/capa.webp" alt="Imagem" class="img">
+        <img src="../img/imgCafe/image_10.png" alt="Imagem" class="img">
         </div>
 
         <div class="receitas">
             <div class="tit">
-                <h3>Receitas</h3>
+                
             </div>
         </div>
