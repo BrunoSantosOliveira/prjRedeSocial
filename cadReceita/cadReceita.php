@@ -70,7 +70,7 @@ $conn->close();
     <header>
         <div class="logo"><h2>Cozinha Descomplica</h2></div>
         <nav class="navbar">
-            <a class="navbaritem" href="#">Início</a>
+            <a class="navbaritem" href="../index.php">Início</a>
             <a class="navbaritem" href="#">Categorias</a>
             <a class="navbaritem" href="#">Sobre Nós</a>
         </nav>

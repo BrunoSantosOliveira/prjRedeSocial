@@ -31,7 +31,7 @@ if (isset($_SESSION['nomeCompleto'])) {
             <h2>Cozinha Descomplica</h2>
         </div>
         <nav class="navbar">
-            <a class="navbaritem" href="#">Início</a>
+            <a class="navbaritem" href="../index.php">Início</a>
             <a class="navbaritem" href="#">Categorias</a>
             <a class="navbaritem" href="#">Sobre Nós</a>
             <?php if (isset($_SESSION['nomeCompleto'])): ?>

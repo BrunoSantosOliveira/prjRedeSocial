@@ -51,6 +51,7 @@ if($resultReceitas->num_rows > 0){
             <a class="navbaritem" href="#">Categorias</a>
             <a class="navbaritem" href="#">Sobre Nós</a>
             <?php if (isset($_SESSION['nomeCompleto'])): ?>
+                <a class="navbaritem" href="cadReceita/cadReceita.php">Cadastrar Receita</a>
                 <a class="navbaritem" href="<?php if($_SESSION['id'] == 1 ){ echo "admin/admin.php";}else{ echo "user/user.php";}?>"><?php echo htmlspecialchars($primeironome); ?></a>
             <?php else: ?>
                 <a class="navbaritem" href="login/login.php">Entrar</a>
@@ -103,7 +104,7 @@ if($resultReceitas->num_rows > 0){
 
                 <a href="#" onclick="submitId(<?php echo $popularIdReceita1; ?>)">
                     <img src="img/imgMaisPopulares/boloDeMihoCremoso.png" id="imgReceita" alt="Imagem Receita">
-                <a>
+            </a>
             </div>
 
             <div class="popular">
